@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Session;
 class Logout
 {
     /**
+     * testen
      * Log the current user out of the application.
      */
     public function __invoke()
