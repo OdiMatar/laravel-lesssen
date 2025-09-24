@@ -1,7 +1,7 @@
 <?php
 
+use App\Models\job;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Arr;
 use Livewire\Volt\Volt;
 
 $jobs = [
@@ -27,11 +27,13 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('jobs', function () use ($jobs) {
-    return view('jobs', ['jobs' => $jobs]);
+    return view('jobs', [
+        'jobs' => job ::all()
+    ]);
 })->name('jobs');
 
 Route::get('/jobs/{id}', function ($id) use ($jobs) {
-    $job = Arr::first($jobs, fn ($job) => $job['id'] == $id);
+     $job = job::find($id);
     return view('job', ['job' => $job]);
 });
 
