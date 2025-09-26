@@ -22,8 +22,9 @@ $jobs = [
     ]
 ];
 
-Route::get('/', function () {
-    return view('home');
+Route::get('/', function () 
+{
+  return view('home');
 })->name('home');
 
 Route::get('jobs', function () use ($jobs) {
