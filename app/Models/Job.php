@@ -15,5 +15,11 @@ class Job extends Model {
         'salary',
         'description'
     ];
+
+    public function employer() {
+        return $this->belongsTo(Employer::class);
+    }
     
 }
+
+// $job ->salaty 
