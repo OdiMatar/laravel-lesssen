@@ -1,5 +1,6 @@
 <?php
 
+
 use App\Models\job;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
@@ -27,9 +28,13 @@ Route::get('/', function ()
   return view('home');
 })->name('home');
 
-Route::get('jobs', function () use ($jobs) {
+Route::get('jobs', function () {
+
+    $jobs = job::with('employer')->get();
+
     return view('jobs', [
-        'jobs' => job ::all()
+
+        'jobs' => $jobs
     ]);
 })->name('jobs');
 
